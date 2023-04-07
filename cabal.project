@@ -1,0 +1,8 @@
+packages: .
+
+source-repository-package
+  type: git
+  location: git@github.com:cgohla/pledge
+  tag: 34f1b361a2069c81cdb92793205488fbe6b9d2e3
+
+                                  

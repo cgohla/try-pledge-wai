@@ -1,2 +1,2 @@
 * DONE make simple web server with a single endpoint giving a constant response
-* TODO make it use pledge
+* DONE make it use pledge
