@@ -34,9 +34,13 @@ getDirectoryContents = Pledge . liftIO . System.Directory.getDirectoryContents
 -- Our pledge enabled application
 app :: (SingI zs)
     => Application zs '[ 'Inet, 'Rpath]
+    -- ^ Our application uses the inet and rpath promises by
+    -- aggregating the promises used by the two component actions.
 app _req reply = M.do
   fs <- getDirectoryContents "."
+  -- ^ uses the rpath promise
   reply $ responseBuilder status200 [] $ stringUtf8 $ intercalate "\n" fs
+  -- ^ uses the inet promise, as specified by the Application type synonym
 
 -- Run the application and discharge the pledge annotations
 main :: IO ()
